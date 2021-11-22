@@ -20,15 +20,20 @@ public class UploadFileBO implements Runnable {
 	public void run() {
 		try {
 			for (Part part : request.getParts()) {
-				String filename = extractFileName(part);
-				filename = new File(filename).getName();
-				
-				part.write(getFolderUpload().getAbsolutePath() + File.separator + filename);
-				UploadFileDAO.Upload(filename, user);
+				if(part.getName().equals("files_upload")) {
+					String filename = extractFileName(part);
+					filename = new File(filename).getName();
+					
+					part.write(getFolderUpload().getAbsolutePath() + File.separator + filename);
+					UploadFileDAO.Upload(filename, user);
+				}
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			// TODO: handle exception
-		}		
+		}
+		
+		new ConvertFileBO(user).run();
 	}
 	private String extractFileName(Part part) {
 	    String contentDisp = part.getHeader("content-disposition");

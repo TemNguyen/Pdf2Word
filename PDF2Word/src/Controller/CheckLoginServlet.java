@@ -35,9 +35,7 @@ public class CheckLoginServlet extends HttpServlet {
 				user user = GetUserBO.GetUser(username);
 				request.getSession().setAttribute("user", user);
 				
-				String des = "/HomePage.jsp";
-				RequestDispatcher rd = request.getRequestDispatcher(des);
-				rd.forward(request, response);
+				response.sendRedirect("HomePage.jsp");
 			}else {
 				//js login fail
 				response.sendRedirect("LoginServlet");

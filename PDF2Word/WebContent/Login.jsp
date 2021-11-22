@@ -18,7 +18,7 @@
 			<label>Tên tài khoản</label>
 		</div>
 		<div class="txt_field">
-			<input type="text" name="password">
+			<input type="password" name="password">
 			<span></span>
 			<label>Mật khẩu</label>
 		</div>

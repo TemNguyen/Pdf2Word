@@ -1,3 +1,4 @@
+<%@page import="Model.Bean.user"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,8 +17,11 @@
 		<i class="far fa-file-pdf"></i><h1>Chuyển PDF sang Word</h1>
 		<h2>Chuyển file PDF sang Word một cách vi diệu</h2>
 	</div>
-	
+	<%
+		user user = (user)session.getAttribute("user");
+	%>
 	<form action="UploadFileServlet" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="username" value=<%=user.getUsername() %>>
 		<div class="main">
 			<div class="submain">
 				<div class="button">
