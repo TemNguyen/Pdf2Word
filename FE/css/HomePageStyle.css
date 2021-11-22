@@ -4,6 +4,42 @@ body{
 	background-color:white;
 }
 
+header{
+	box-sizing: border-box;
+	margin:0;
+	padding: 0;
+	background-color:#24252A;
+	top:0;
+	left:0;
+	width:100%;
+}
+
+li,a{
+	font-weight:500;
+	font-size:20px;
+	text-decoration: none;
+	color:#edf0f1;
+}
+
+.nav_link{
+	display: flex;
+	justify-content: space-between;
+	align-items:center;
+	padding: 25px 10%;
+	list-style:none;
+	
+}
+
+.nav_link li{
+	cursor:pointer;
+}
+
+.nav_link li a{
+	transition: all 0.3s ease 0s;
+}
+.nav_link li a:hover{
+	color:#0088a9;
+}
 
 .header{
 	text-align:center;
@@ -38,7 +74,6 @@ body{
 	display:flex;
 	align-items:center;
 	justify-content:center;
-
 	border-width: 1px;
 	border-radius:5px;
 	border-style: dash;
@@ -46,7 +81,7 @@ body{
 }
 .button{
 	position:relative;
-	padding-right:180px;
+	padding-right:200px;
 	top:30%;
 }
 .button .far{

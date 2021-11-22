@@ -10,6 +10,16 @@
 </head>
 <body>
 
+<header>
+	<nav>
+		<ul class="nav_link">
+			<li><a href="UserProfile.jsp">Trang chủ</a></li>
+			<li><a href="UserProfile.jsp">Tìm kiếm</a></li>
+			<li><a href="UserProfile.jsp">Hỗ trợ</a></li>
+			<li><a href="UserProfile.jsp">Hồ sơ</a></li>
+		</ul>
+	</nav>
+</header>
 
 <div class="container">
 	<div class="header">
@@ -18,11 +28,11 @@
 	</div>
 	<div class="main">
 		<div class="submain">
-			<div class="button">
+			<form action="UploadfileServlet" class="button" method="post" enctype="multipart/form-data">
 				<i class="far fa-copy"></i>
 				<input type="file" id="file" accept="application/pdf">
 				<label for="file">CHỌN CÁC TỆP</label>
-			</div>
+			</form>
 		</div>
 	</div>
 </div>
