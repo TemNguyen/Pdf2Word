@@ -8,22 +8,21 @@
 <link href="./css/LoginStyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-<form action="GotoMyHomeServlet" method="post" class="form">
+<div class="form">
 <h1>Login</h1>
-<div class="txt_contain">
-<div class="txt_field">
-<input type="text" name="username">
-<span></span>
-<label>User name</label>
-</div>
-<div class="txt_field">
-<input type="text" name="password">
-<span></span>
-<label>Pass word</label>
-</div>
-<input type="submit" name="submit" value="Login" >
-</div>
+<form action="GotoMyHomeServlet" method="post" class="txt_contain">
+	<div class="txt_field">
+		<input type="text" name="username">
+		<span></span>
+		<label>User name</label>
+	</div>
+	<div class="txt_field">
+		<input type="text" name="password">
+		<span></span>
+		<label>Pass word</label>
+	</div>
+	<input type="submit" name="submit" value="Login" >
 </form>
+</div>
 </body>
 </html>
