@@ -22,8 +22,12 @@ public class ConvertFileBO implements Runnable {
 		ArrayList<uploadfile> files = ConvertFileDAO.GetListConvertFile(user);
 		for (uploadfile file : files) {
 			String filename = file.getFname().split("\\.")[0];
-			Convert(filename);
-			ConvertFileDAO.ChangeStatus(file.getFid());
+			try {
+				Convert(filename);
+				ConvertFileDAO.ChangeStatus(file.getFid());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}
