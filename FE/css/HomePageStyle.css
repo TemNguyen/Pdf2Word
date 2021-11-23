@@ -14,7 +14,7 @@ header{
 	width:100%;
 }
 
-li,a{
+.nav_link li,a{
 	font-weight:500;
 	font-size:20px;
 	text-decoration: none;
@@ -44,7 +44,7 @@ li,a{
 .header{
 	text-align:center;
 	margin-top:70px;
-	}
+}
 .header h2{
 	font-weight: 100;
 }
@@ -103,6 +103,21 @@ label{
 	position:absolute;
 	background-color:rgb(242, 240, 240);
 	font-size:20px;
-	border-radius:5px;
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
 	padding-top:15px;
+}
+.submit{
+	position:absolute;
+	right:-65px;
+	z-index:2;
+	color:black;
+	font-size:18px;
+	height:55.1px;
+	width:65px;
+	background-color:rgb(242, 240, 240);
+	border: none;
+	border-left:1px solid lightgray;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
 }

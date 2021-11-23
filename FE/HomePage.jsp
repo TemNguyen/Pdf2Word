@@ -28,10 +28,11 @@
 	</div>
 	<div class="main">
 		<div class="submain">
-			<form action="UploadfileServlet" class="button" method="post" enctype="multipart/form-data">
+			<form action="UploadfileServlet" class="button" method="POST" enctype="multipart/form-data">
 				<i class="far fa-copy"></i>
-				<input type="submit" id="file" accept="application/pdf">
+				<input type="file" id="file" accept="application/pdf">
 				<label for="file">CHỌN CÁC TỆP</label>
+				<input class="submit" type="submit" value="Send">
 			</form>
 		</div>
 	</div>
