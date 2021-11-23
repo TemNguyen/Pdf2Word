@@ -22,7 +22,7 @@
 
 <div class="Wrapper">
 	<div class="left">
-		<img src="default-profile-icon-24.jpg" alt="user" width="100">
+		<img src="img/default-profile-icon-24.jpg" alt="user" width="100">
 		<h4>Hùng Nguyễn</h4>
 		<p>UI Developer</p>
 	</div>
@@ -53,7 +53,7 @@
 				<tbody>
 					<tr>
 						<td>[ID]</td>
-						<td>[]File name]</td>
+						<td>[File name]</td>
 						<td>[Download]</td>
 					</tr>
 				</tbody>
