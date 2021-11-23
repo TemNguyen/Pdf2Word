@@ -27,6 +27,16 @@
 	ArrayList<uploadfile> files = (ArrayList<uploadfile>)request.getAttribute("Files");
 %>
 
+<header>
+	<nav>
+		<ul class="nav_link">
+			<li><a href="HomePage.jsp">Trang chủ</a></li>
+			<li><a href="UserProfileServlet?uid=<%= user.getUid() %>">Hồ sơ</a></li>
+			<li><a href="LogoutServlet">Đăng xuất</a></li>
+		</ul>
+	</nav>
+</header>
+
 <div class="Wrapper">
 	<div class="left">
 		<img src="default-profile-icon-24.jpg" alt="user" width="100">
@@ -46,32 +56,43 @@
 				</div>
 			</div>
 		</div>
+				
 		<div class="projects">
 			<h3>Projects</h3>
-			<div>
-				
-				<table width="100%" style="text-align:center">
+			<table>
+				<thead>
 					<tr>
-						<th>ID</th>
-						<th>File name</th>
-						<th>Dowload</th>
+						<td class="id"><b>ID</b></td>
+						<td class="name"><b>File name</b></td>
+						<td class="download"><b>Download</b></td>
 					</tr>
-				<%
+				</thead>
+				<tbody>
+					<%
 					for(int i = 0; i < files.size(); i++){
 					
-				%>
+					%>
 					<tr>
 						<td><%=i %></td>
 						<td><%=files.get(i).getFname() %></td>
-						<td><a href="DownloadFileServlet?fid=<%=files.get(i).getFid() %>">Download</a></td>
+						<%
+							if(files.get(i).isFstatus()){
+								%>
+								<td><a href="DownloadFileServlet?fid=<%=files.get(i).getFid() %>">Download</a></td>
+								<%
+							}else{
+								%>
+								<td>Đang xử lý...</td>
+								<%
+							}
+						%>
 					</tr>
-				<%
-				}
-				%>
-				</table>
-
-			</div>
-		</div>	
+					<%
+					}
+					%>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 

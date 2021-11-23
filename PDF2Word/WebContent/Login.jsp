@@ -17,22 +17,17 @@
 		session.setAttribute("message", null);
 	}
 %>
-
-<form action="CheckLoginServlet" method="post" class="form">
-	<h1>Đăng nhập</h1>
-	<div class="txt_contain">
-		<div class="txt_field">
-			<input type="text" name="username">
-			<span></span>
-			<label>Tên tài khoản</label>
-		</div>
-		<div class="txt_field">
-			<input type="password" name="password">
-			<span></span>
-			<label>Mật khẩu</label>
-		</div>
-			<input type="submit" name="submit" value="Đăng nhập" >
+<div class="form">
+<h1>Đăng nhập</h1>
+<form action="CheckLoginServlet" method="post" class="txt_contain">
+	<div class="txt_field">
+		<input type="text" name="username" placeholder="Tên đăng nhập">
 	</div>
+	<div class="txt_field">
+		<input type="password" name="password" placeholder="Mật khẩu">
+	</div>
+	<input type="submit" name="submit" value="Đăng nhập" >
 </form>
+</div>
 </body>
 </html>

@@ -19,7 +19,7 @@ public class UserProfileDAO {
 			String url = "jdbc:mysql://127.0.0.1:3306/pdf2word";
 			Connection con = (Connection) DriverManager.getConnection(url, "root", "");
 			Statement stmt = (Statement) con.createStatement();
-			String sql = "select * from uploadfile where uid = "+ uid + " and fstatus = true";
+			String sql = "select * from uploadfile where uid = "+ uid;
 			
 			ResultSet rs = stmt.executeQuery(sql);
 			

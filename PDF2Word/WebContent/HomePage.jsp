@@ -37,20 +37,19 @@
 		<i class="far fa-file-pdf"></i><h1>Chuyển PDF sang Word</h1>
 		<h2>Chuyển file PDF sang Word một cách vi diệu</h2>
 	</div>
-
-	<form action="UploadFileServlet" class="button" method="post" enctype="multipart/form-data">
-		<div class="main">
-			<div class="submain">
-				
-					<input type="hidden" name="username" value=<%=user.getUsername() %>>
-					<i class="far fa-copy"></i>
-					<input type="file" id="file" name="files_upload" accept="application/pdf" multiple>
-					<label for="file">CHỌN CÁC TỆP</label>
-					
-			</div>
+	
+	<div class="main">
+		<div class="submain">
+			<form action="UploadFileServlet" class="button" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="username" value=<%=user.getUsername() %>>
+				<input type="hidden" name="MAX_FILE_SIZE" value="30000">
+				<i class="far fa-copy"></i>
+				<input type="file" id="file" name="files_upload" accept="application/pdf" multiple size="3000">
+				<label for="file">CHỌN CÁC TỆP</label>
+			</form>
 		</div>
-		<input type="submit" value="Submit">
-	</form>
+	</div>
+	
 </div>
 </body>
 </html>

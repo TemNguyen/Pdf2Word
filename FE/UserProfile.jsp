@@ -53,7 +53,7 @@
 				<tbody>
 					<tr>
 						<td>[ID]</td>
-						<td>[]File name]</td>
+						<td>[File name]</td>
 						<td>[Download]</td>
 					</tr>
 				</tbody>

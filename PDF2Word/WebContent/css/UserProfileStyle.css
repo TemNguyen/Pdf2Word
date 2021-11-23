@@ -10,6 +10,46 @@ body{
 	background: #f3f3f3;
 }
 
+header{
+	box-sizing: border-box;
+	margin:0;
+	padding: 0;
+	background-color:#24252A;
+	top:0;
+	left:0;
+	width:100%;
+}
+
+.nav_link li,a{
+	font-weight:400;
+	font-size:18px;
+	text-decoration: none;
+	color:#edf0f1;
+}
+
+.nav_link{
+	display: flex;
+	justify-content: space-between;
+	align-items:center;
+	padding: 20px 10%;
+	list-style:none;
+	
+}
+
+.nav_link li{
+	cursor:pointer;
+}
+
+.nav_link li a{
+	transition: all 0.3s ease 0s;
+}
+.nav_link li a:hover{
+	color:#0088a9;
+}
+
+
+
+
 .Wrapper{
 	position:absolute;
 	top:50%;
@@ -85,4 +125,18 @@ body{
 	font-size: 18px;
 	margin-bottom:10px;
 	color: #919aa3;
+}
+
+table{
+	width: 100%;
+}
+td.id{
+	width:10%;
+}
+td.name{
+	width:70%;
+	text-align:center;
+}
+td.download{
+	width:20%;
 }

@@ -10,14 +10,14 @@
 <body>
 <div class="form">
 <h1>Login</h1>
-<form action="GotoMyHomeServlet" method="post" class="txt_contain">
+<form action="CheckLoginServlet" method="post" class="txt_contain">
 	<div class="txt_field">
-		<input type="text" name="username" placeholder="User name">
+		<input type="text" name="username" placeholder="Tên đăng nhập">
 	</div>
 	<div class="txt_field">
-		<input type="text" name="password" placeholder="Password">
+		<input type="text" name="password" placeholder="Mật khẩu">
 	</div>
-	<input type="submit" name="submit" value="Login" >
+	<input type="submit" name="submit" value="Đăng nhập" >
 </form>
 </div>
 </body>
