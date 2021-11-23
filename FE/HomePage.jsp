@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.Bean.Account" %>
-<%@ page import="model.BO.CheckLoginBO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +9,7 @@
 <script src="https://kit.fontawesome.com/410b195647.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<%
-	String id = request.getParameter("username");
-	String pw = request.getParameter("password");
-	Account a = CheckLoginBO.getAccount(id,pw);
-	if(a != null){
-		
-	}
-%>
+
 <header>
 	<nav>
 		<ul class="nav_link">
@@ -29,12 +20,7 @@
 		</ul>
 	</nav>
 </header>
-<div class="show">
-	<h1>ID:<%=a.getId() %></h1>
-	<h1>Name:<%=a.getName() %></h1>
-	<h1>Sex:<%=a.getSex() %></h1>
-	<h1>Status:<%=a.getStatus() %></h1>
-</div>
+
 <div class="container">
 	<div class="header">
 		<i class="far fa-file-pdf"></i><h1>Chuyển PDF sang Word</h1>
