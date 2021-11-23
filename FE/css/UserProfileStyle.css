@@ -1,4 +1,3 @@
-
 *{
 	margin:0;
 	padding:0;
@@ -46,10 +45,6 @@ header{
 .nav_link li a:hover{
 	color:#0088a9;
 }
-
-
-
-
 .Wrapper{
 	position:absolute;
 	top:50%;

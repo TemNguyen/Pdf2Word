@@ -15,7 +15,7 @@
 		<input type="text" name="username" placeholder="Tên đăng nhập">
 	</div>
 	<div class="txt_field">
-		<input type="text" name="password" placeholder="Mật khẩu">
+		<input type="password" name="password" placeholder="Password">
 	</div>
 	<input type="submit" name="submit" value="Đăng nhập" >
 </form>
