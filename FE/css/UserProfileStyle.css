@@ -130,12 +130,14 @@ header{
 table{
 	width: 100%;
 }
+td{
+	text-align:center;
+}
 td.id{
 	width:10%;
 }
 td.name{
 	width:70%;
-	text-align:center;
 }
 td.download{
 	width:20%;
