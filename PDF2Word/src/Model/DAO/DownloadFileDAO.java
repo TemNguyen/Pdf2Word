@@ -2,43 +2,39 @@ package Model.DAO;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
 import Model.Bean.uploadfile;
 
-public class UserProfileDAO {
+public class DownloadFileDAO {
 
-	public static ArrayList<uploadfile> GetProcessedFile(int uid) {
-		ArrayList<uploadfile> files = new ArrayList<uploadfile>();
+	public static uploadfile GetFile(int fid) {
+		uploadfile file = new uploadfile();
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://127.0.0.1:3306/pdf2word";
 			Connection con = (Connection) DriverManager.getConnection(url, "root", "");
 			Statement stmt = (Statement) con.createStatement();
-			String sql = "select * from uploadfile where uid = "+ uid + " and fstatus = true";
-			
+			String sql = "SELECT * FROM uploadfile where fid = " + fid + "";
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			while (rs.next()) {
-				int fid = rs.getInt("fid");
+			if (rs.next()) {
+				int _fid = rs.getInt("fid");
+				int _uid = rs.getInt("uid");
 				String fname = rs.getString("fname").split("\\.")[0] + ".docx";
-				if(fname.length() > 20)
-					fname = fname.substring(0, 20) + "...docx";
-				boolean fstatus = rs.getBoolean("fstatus");
+				boolean status = true;
 				
-				files.add(new uploadfile(fid, uid, fname, fstatus));
+				file = new uploadfile(_fid, _uid, fname, status);
 			}
 		}
 		catch(Exception a)
 		{
 			return null;
 		}
-		
-		return files;
+		return file;
 	}
-	
+
 }

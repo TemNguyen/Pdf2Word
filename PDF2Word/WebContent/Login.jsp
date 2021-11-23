@@ -9,6 +9,15 @@
 </head>
 <body>
 
+<%
+	if(session.getAttribute("message") != null){
+		%>
+			<script>alert("<%=session.getAttribute("message")%>")</script>
+		<%
+		session.setAttribute("message", null);
+	}
+%>
+
 <form action="CheckLoginServlet" method="post" class="form">
 	<h1>Đăng nhập</h1>
 	<div class="txt_contain">

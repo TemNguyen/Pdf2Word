@@ -1,13 +1,27 @@
 package Controller;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/DowloadFileServlet")
+import com.spire.pdf.exporting.xps.schema.Path;
+
+import Model.BO.DowloadFileBO;
+import Model.Bean.uploadfile;
+
+@WebServlet("/DownloadFileServlet")
 public class DowloadFileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,15 +40,44 @@ public class DowloadFileServlet extends HttpServlet {
 		}
 		
 		if(fid != 0) {
+			uploadfile file = DowloadFileBO.GetFile(fid);
+			
+			String scrpath = GetFolderPath("docxs").getAbsolutePath() + File.separator + file.getFname();
+			java.nio.file.Path path = Paths.get(scrpath);
+			byte[] data = Files.readAllBytes(path);
+			
+			response.setContentType("application/octet-stream");
+		    response.setHeader("Content-disposition", "attachment; filename=" + file.getFname());
+		    response.setContentLength(data.length);
+		    InputStream inputStream = new BufferedInputStream(new ByteArrayInputStream(data));
+		    
+		    OutputStream outStream = response.getOutputStream();
+		    byte[] buffer = new byte[4096];
+		    int bytesRead = -1;
+		    while ((bytesRead = inputStream.read(buffer)) != -1) {
+		      outStream.write(buffer, 0, bytesRead);
+		    }
+		    inputStream.close();
+		    outStream.close();
 			
 		}else {
-			//js error
+			request.getSession().setAttribute("message", "File không tồn tại hoặc đã bị xóa!");
 		}
+		
+		response.sendRedirect("UserProfileServlet");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	private File GetFolderPath(String folder) {
+	    File folderUpload = new File(System.getProperty("user.home") + "/" + folder);
+	    if (!folderUpload.exists()) {
+	      folderUpload.mkdirs();
+	    }
+	    return folderUpload;
+	  }
 
 }

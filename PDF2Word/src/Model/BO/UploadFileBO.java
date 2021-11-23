@@ -33,10 +33,8 @@ public class UploadFileBO implements Runnable {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			// TODO: handle exception
+			request.getSession().setAttribute("message", "Có lỗi xảy ra trong quá trình upload, vui lòng thử lại sau!");
 		}
-		
 		new ConvertFileBO(user).run();
 	}
 	private String extractFileName(Part part) {

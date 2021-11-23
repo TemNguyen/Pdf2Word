@@ -1,8 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,13 +31,14 @@ public class CheckLoginServlet extends HttpServlet {
 			response.sendRedirect("LoginServlet");
 		}else {
 			if(CheckLoginBO.CheckLogin(username, password)) {
-				//js login success
 				user user = GetUserBO.GetUser(username);
 				request.getSession().setAttribute("user", user);
-				
+				request.getSession().setAttribute("message", "Đăng nhập thành công!");
 				response.sendRedirect("HomePage.jsp");
+				
 			}else {
 				//js login fail
+				request.getSession().setAttribute("message", "Có lỗi xảy ra, vui lòng kiểm tra lại thông tin tài khoản!");
 				response.sendRedirect("LoginServlet");
 			}
 		}

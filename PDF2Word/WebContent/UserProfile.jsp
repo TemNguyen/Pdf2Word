@@ -14,6 +14,15 @@
 <body>
 
 <%
+	if(session.getAttribute("session") != null){
+		%>
+			<script>alert("<%=session.getAttribute("session")%>")</script>
+		<%
+		session.setAttribute("message", null);
+	}
+%>
+
+<%
 	user user = (user)session.getAttribute("user");
 	ArrayList<uploadfile> files = (ArrayList<uploadfile>)request.getAttribute("Files");
 %>
@@ -39,23 +48,28 @@
 		</div>
 		<div class="projects">
 			<h3>Projects</h3>
-			<div class="projects_data">
+			<div>
+				
+				<table width="100%" style="text-align:center">
+					<tr>
+						<th>ID</th>
+						<th>File name</th>
+						<th>Dowload</th>
+					</tr>
 				<%
-				for(int i = 0; i < files.size(); i++){
+					for(int i = 0; i < files.size(); i++){
 					
 				%>
-				<div class="data">
-					<h4>File name</h4>
-					<p><%=files.get(i).getFname() %></p>
-				</div>
-				<div class="data">
-					<h4>Download</h4>
-					<a href="DownloadFileServlet?fid=<%=files.get(i).getFid() %>">Download</a>
-				</div>
-				<br>
+					<tr>
+						<td><%=i %></td>
+						<td><%=files.get(i).getFname() %></td>
+						<td><a href="DownloadFileServlet?fid=<%=files.get(i).getFid() %>">Download</a></td>
+					</tr>
 				<%
 				}
 				%>
+				</table>
+
 			</div>
 		</div>	
 	</div>

@@ -10,6 +10,15 @@
 <script src="https://kit.fontawesome.com/410b195647.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<%
+	if(session.getAttribute("message") != null){
+		%>
+			<script>alert("<%=session.getAttribute("message")%>")</script>
+		<%
+		session.setAttribute("message", null);
+	}
+%>
+
 	<%
 		user user = (user)session.getAttribute("user");
 	%>

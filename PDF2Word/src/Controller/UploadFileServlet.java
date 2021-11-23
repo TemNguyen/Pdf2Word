@@ -29,7 +29,7 @@ public class UploadFileServlet extends HttpServlet {
 		user user = GetUserBO.GetUser(username);
 		Thread t = new Thread(new UploadFileBO(request, user));
 		t.start();
-		//js message
+		request.getSession().setAttribute("message", "Uploading...");
 		response.sendRedirect("HomePage.jsp");
 	}
 
