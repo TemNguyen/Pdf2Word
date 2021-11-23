@@ -9,6 +9,16 @@
 <link href="./css/UserProfileStyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<header>
+	<nav>
+		<ul class="nav_link">
+			<li><a href="HomePage.jsp">Trang chủ</a></li>
+			<li><a href="HomePage.jsp">Hỗ trợ</a></li>
+			<li><a href="HomePage.jsp">Đóng góp</a></li>
+			<li><a href="Login.jsp">Đăng xuất</a></li>
+		</ul>
+	</nav>
+</header>
 
 <div class="Wrapper">
 	<div class="left">
@@ -32,49 +42,23 @@
 		</div>
 		<div class="projects">
 			<h3>Projects</h3>
-			<div class="projects_data">
-				<div class="data">
-					<h4>Recent uploads</h4>
-					<p>file hiển thị ở đây</p>
-				</div>
-				<div class="data">
-					<h4>Tổng dung lượng</h4>
-					<p>file hiển thị ở đây</p>
-				</div>
-			</div>
+			<table>
+				<thead>
+					<tr>
+						<td class="id"><b>ID</b></td>
+						<td class="name"><b>File name</b></td>
+						<td class="download"><b>Download</b></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>[ID]</td>
+						<td>[]File name]</td>
+						<td>[Download]</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		
-		<div class="storage">
-			<div class="projects_data">
-				<div class="data">
-					<p>file hiển thị ở đây</p>
-				</div>
-				<div class="data">
-					<p>file hiển thị ở đây</p>
-				</div>
-			</div>
-		</div>
-		<div class="storage">
-			<div class="projects_data">
-				<div class="data">
-					<p>file hiển thị ở đây</p>
-				</div>
-				<div class="data">
-					<p>file hiển thị ở đây</p>
-				</div>
-			</div>
-		</div>
-		<div class="storage">
-			<div class="projects_data">
-				<div class="data">
-					<p>file hiển thị ở đây</p>
-				</div>
-				<div class="data">
-					<p>file hiển thị ở đây</p>
-				</div>
-			</div>
-		</div>
-		
 	</div>
 </div>
 
