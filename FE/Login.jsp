@@ -12,14 +12,10 @@
 <h1>Login</h1>
 <form action="GotoMyHomeServlet" method="post" class="txt_contain">
 	<div class="txt_field">
-		<input type="text" name="username">
-		<span></span>
-		<label>User name</label>
+		<input type="text" name="username" placeholder="User name">
 	</div>
 	<div class="txt_field">
-		<input type="text" name="password">
-		<span></span>
-		<label>Pass word</label>
+		<input type="text" name="password" placeholder="Password">
 	</div>
 	<input type="submit" name="submit" value="Login" >
 </form>
