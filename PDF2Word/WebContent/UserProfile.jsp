@@ -39,7 +39,7 @@
 
 <div class="Wrapper">
 	<div class="left">
-		<img src="default-profile-icon-24.jpg" alt="user" width="100">
+		<img src="img/default-profile-icon-24.jpg" alt="user" width="100">
 		<h4><%=user.getFullname() %></h4>
 	</div>
 	<div class="right">
@@ -78,7 +78,7 @@
 						<%
 							if(files.get(i).isFstatus()){
 								%>
-								<td><a href="DownloadFileServlet?fid=<%=files.get(i).getFid() %>">Download</a></td>
+								<td><a style="color: blue;" href="DownloadFileServlet?fid=<%=files.get(i).getFid() %>">Download</a></td>
 								<%
 							}else{
 								%>

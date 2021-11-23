@@ -28,8 +28,7 @@ public class ConvertFileBO implements Runnable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-		
+		}	
 	}
 	
 	private void Convert(String filename) {

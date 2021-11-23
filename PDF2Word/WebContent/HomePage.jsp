@@ -42,10 +42,10 @@
 		<div class="submain">
 			<form action="UploadFileServlet" class="button" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="username" value=<%=user.getUsername() %>>
-				<input type="hidden" name="MAX_FILE_SIZE" value="30000">
 				<i class="far fa-copy"></i>
 				<input type="file" id="file" name="files_upload" accept="application/pdf" multiple size="3000">
 				<label for="file">CHỌN CÁC TỆP</label>
+				<input class="submit" type="submit" value="Send">
 			</form>
 		</div>
 	</div>
