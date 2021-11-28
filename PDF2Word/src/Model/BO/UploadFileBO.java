@@ -1,6 +1,8 @@
 package Model.BO;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
@@ -25,10 +27,11 @@ public class UploadFileBO implements Runnable {
 					filename = new File(filename).getName();
 					
 					try {
-						part.write(getFolderUpload().getAbsolutePath() + File.separator + filename);
-						UploadFileDAO.Upload(filename, user, 0);
+						File file = new File(getFolderUpload(), filename);
+						Files.copy(part.getInputStream(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+						UploadFileDAO.Upload(filename, user, CONSTRAINT.PROCESSING);
 					} catch (Exception e) {
-						UploadFileDAO.Upload(filename, user, 3);
+						UploadFileDAO.Upload(filename, user, CONSTRAINT.UPLOAD_ERROR);
 					}
 				}
 			}

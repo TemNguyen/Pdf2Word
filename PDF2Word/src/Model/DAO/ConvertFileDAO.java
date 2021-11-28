@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
+import Model.BO.CONSTRAINT;
 import Model.Bean.uploadfile;
 import Model.Bean.user;
 
@@ -20,7 +21,7 @@ public class ConvertFileDAO {
 			String url = "jdbc:mysql://127.0.0.1:3306/pdf2word";
 			Connection con = (Connection) DriverManager.getConnection(url, "root", "");
 			Statement stmt = (Statement) con.createStatement();
-			String sql = "select * from uploadfile where uid = "+ user.getUid() + " and fstatus = false";
+			String sql = "select * from uploadfile where uid = "+ user.getUid() + " and fstatus = " + CONSTRAINT.PROCESSING;
 			
 			ResultSet rs = stmt.executeQuery(sql);
 			

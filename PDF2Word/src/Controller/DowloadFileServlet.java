@@ -51,17 +51,17 @@ public class DowloadFileServlet extends HttpServlet {
 		    OutputStream outStream = response.getOutputStream();
 		    byte[] buffer = new byte[4096];
 		    int bytesRead = -1;
+		    
 		    while ((bytesRead = inputStream.read(buffer)) != -1) {
 		      outStream.write(buffer, 0, bytesRead);
 		    }
+		    
 		    inputStream.close();
 		    outStream.close();
 			
 		}else {
 			request.getSession().setAttribute("message", "File không tồn tại hoặc đã bị xóa!");
 		}
-		
-		response.sendRedirect("UserProfileServlet");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -24,9 +24,9 @@ public class ConvertFileBO implements Runnable {
 			String filename = file.getFname().split("\\.")[0];
 			try {
 				Convert(filename);
-				ConvertFileDAO.ChangeStatus(file.getFid(), 2);
+				ConvertFileDAO.ChangeStatus(file.getFid(), CONSTRAINT.SUCCESS);
 			} catch (Exception e) {
-				ConvertFileDAO.ChangeStatus(file.getFid(), 1);
+				ConvertFileDAO.ChangeStatus(file.getFid(), CONSTRAINT.CONVERT_ERROR);
 			}
 		}	
 	}

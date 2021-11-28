@@ -1,3 +1,4 @@
+<%@page import="Model.BO.CONSTRAINT"%>
 <%@page import="Model.Bean.uploadfile"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Bean.user"%>
@@ -79,25 +80,31 @@
 							int fstatus = files.get(i).getFstatus();
 							
 							switch(fstatus){
-							case 0:
+							case CONSTRAINT.PROCESSING:
 								%>
 								<td>Đang xử lý...</td>
 								<%
 								break;
-							case 1:
+							case CONSTRAINT.CONVERT_ERROR:
 								%>
 								<td><a style="color: blue;" href="ShowErrorServlet?errorCode=1&uid=<%=user.getUid()%>">[ERROR]</a></td>
 								<%
 								break;
-							case 2:
+							case CONSTRAINT.SUCCESS:
 								%>
 								<td><a style="color: blue;" href="DownloadFileServlet?fid=<%=files.get(i).getFid() %>">Download</a></td>
 								<%
 								break;
+							case CONSTRAINT.UPLOAD_ERROR:
+								%>
+								<td><a style="color: blue;" href="ShowErrorServlet?errorCode=3&uid=<%=user.getUid()%>">[ERROR]</a></td>
+								<%
+								break;
 							default:
 								%>
-								<td><a style="color: blue;" href="ShowErrorServlet?errorCode=2&uid=<%=user.getUid()%>">[ERROR]</a></td>
+								<td><a style="color: blue;" href="ShowErrorServlet?errorCode=4&uid=<%=user.getUid()%>">[ERROR]</a></td>
 								<%
+								break;
 							}
 						%>
 					</tr>
