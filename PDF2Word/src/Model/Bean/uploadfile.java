@@ -4,7 +4,7 @@ public class uploadfile {
 	int fid;
 	int uid;
 	String fname;
-	boolean fstatus;
+	int fstatus;
 	
 	public int getFid() {
 		return fid;
@@ -24,13 +24,13 @@ public class uploadfile {
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
-	public boolean isFstatus() {
+	public int getFstatus() {
 		return fstatus;
 	}
-	public void setFstatus(boolean fstatus) {
+	public void setFstatus(int fstatus) {
 		this.fstatus = fstatus;
 	}
-	public uploadfile(int fid, int uid, String fname, boolean fstatus) {
+	public uploadfile(int fid, int uid, String fname, int fstatus) {
 		super();
 		this.fid = fid;
 		this.uid = uid;

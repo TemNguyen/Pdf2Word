@@ -28,7 +28,7 @@ public class ConvertFileDAO {
 				int fid = rs.getInt("fid");
 				int uid = rs.getInt("uid");
 				String fname = rs.getString("fname");
-				boolean fstatus = rs.getBoolean("fstatus");
+				int fstatus = rs.getInt("fstatus");
 				
 				files.add(new uploadfile(fid, uid, fname, fstatus));
 			}
@@ -41,14 +41,14 @@ public class ConvertFileDAO {
 		return files;
 	}
 
-	public static void ChangeStatus(int fid) {
+	public static void ChangeStatus(int fid, int fstatus) {
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://127.0.0.1:3306/pdf2word";
 			Connection con = (Connection) DriverManager.getConnection(url, "root", "");
 			Statement stmt = (Statement) con.createStatement();
-			String sql = "UPDATE uploadfile set fstatus = true where fid = " + fid;
+			String sql = "UPDATE uploadfile set fstatus = "+ fstatus +" where fid = " + fid;
 			
 			stmt.execute(sql);
 			

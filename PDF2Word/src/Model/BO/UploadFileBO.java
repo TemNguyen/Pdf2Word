@@ -26,9 +26,9 @@ public class UploadFileBO implements Runnable {
 					
 					try {
 						part.write(getFolderUpload().getAbsolutePath() + File.separator + filename);
-						UploadFileDAO.Upload(filename, user);
+						UploadFileDAO.Upload(filename, user, 0);
 					} catch (Exception e) {
-						e.printStackTrace();
+						UploadFileDAO.Upload(filename, user, 3);
 					}
 				}
 			}

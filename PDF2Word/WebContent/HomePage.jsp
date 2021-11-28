@@ -10,6 +10,20 @@
 <script src="https://kit.fontawesome.com/410b195647.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <%
+  user user = new user();
+  response.setHeader("Cache-Control","no-cache");
+  response.setHeader("Cache-Control","no-store");
+  response.setHeader("Pragma","no-cache");
+  response.setDateHeader ("Expires", 0);
+
+  if(session.getAttribute("user") == null)
+      response.sendRedirect("Login.jsp");
+  else {
+	  user = (user)session.getAttribute("user");
+  }
+
+  %> 
 <%
 	if(session.getAttribute("message") != null){
 		%>
@@ -18,10 +32,6 @@
 		session.setAttribute("message", null);
 	}
 %>
-
-	<%
-		user user = (user)session.getAttribute("user");
-	%>
 <header>
 	<nav>
 		<ul class="nav_link">
@@ -45,7 +55,7 @@
 				<i class="far fa-copy"></i>
 				<input type="file" id="file" name="files_upload" accept="application/pdf" multiple size="3000">
 				<label for="file">CHỌN CÁC TỆP</label>
-				<input class="submit" type="submit" value="Send">
+				<input class="submit" type="submit" value="Chuyển đổi!">
 			</form>
 		</div>
 	</div>

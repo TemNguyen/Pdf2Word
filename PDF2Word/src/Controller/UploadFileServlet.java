@@ -25,11 +25,13 @@ public class UploadFileServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
-		user user = GetUserBO.GetUser(username);
-		Thread t = new Thread(new UploadFileBO(request, user));
-		t.start();
-		request.getSession().setAttribute("message", "Uploading...");
+		if(request.getPart("files_upload").getSize() != 0) {
+			String username = request.getParameter("username");
+			user user = GetUserBO.GetUser(username);
+			Thread t = new Thread(new UploadFileBO(request, user));
+			t.start();
+			request.getSession().setAttribute("message", "Uploading...");
+		}
 		response.sendRedirect("HomePage.jsp");
 	}
 

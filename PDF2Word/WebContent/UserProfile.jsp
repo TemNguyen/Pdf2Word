@@ -14,9 +14,9 @@
 <body>
 
 <%
-	if(session.getAttribute("session") != null){
+	if(session.getAttribute("message") != null){
 		%>
-			<script>alert("<%=session.getAttribute("session")%>")</script>
+			<script>alert("<%=session.getAttribute("message")%>")</script>
 		<%
 		session.setAttribute("message", null);
 	}
@@ -76,13 +76,27 @@
 						<td><%=i %></td>
 						<td><%=files.get(i).getFname() %></td>
 						<%
-							if(files.get(i).isFstatus()){
+							int fstatus = files.get(i).getFstatus();
+							
+							switch(fstatus){
+							case 0:
+								%>
+								<td>Đang xử lý...</td>
+								<%
+								break;
+							case 1:
+								%>
+								<td><a style="color: blue;" href="ShowErrorServlet?errorCode=1&uid=<%=user.getUid()%>">[ERROR]</a></td>
+								<%
+								break;
+							case 2:
 								%>
 								<td><a style="color: blue;" href="DownloadFileServlet?fid=<%=files.get(i).getFid() %>">Download</a></td>
 								<%
-							}else{
+								break;
+							default:
 								%>
-								<td>Đang xử lý...</td>
+								<td><a style="color: blue;" href="ShowErrorServlet?errorCode=2&uid=<%=user.getUid()%>">[ERROR]</a></td>
 								<%
 							}
 						%>

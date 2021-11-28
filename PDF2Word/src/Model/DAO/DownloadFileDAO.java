@@ -25,7 +25,7 @@ public class DownloadFileDAO {
 				int _fid = rs.getInt("fid");
 				int _uid = rs.getInt("uid");
 				String fname = rs.getString("fname").split("\\.")[0] + ".docx";
-				boolean status = true;
+				int status = 2;
 				
 				file = new uploadfile(_fid, _uid, fname, status);
 			}

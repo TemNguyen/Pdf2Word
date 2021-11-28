@@ -28,7 +28,7 @@ public class UserProfileDAO {
 				String fname = rs.getString("fname").split("\\.")[0] + ".docx";
 				if(fname.length() > 20)
 					fname = fname.substring(0, 20) + "...docx";
-				boolean fstatus = rs.getBoolean("fstatus");
+				int fstatus = rs.getInt("fstatus");
 				
 				files.add(new uploadfile(fid, uid, fname, fstatus));
 			}

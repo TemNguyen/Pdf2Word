@@ -24,21 +24,18 @@ public class ConvertFileBO implements Runnable {
 			String filename = file.getFname().split("\\.")[0];
 			try {
 				Convert(filename);
-				ConvertFileDAO.ChangeStatus(file.getFid());
+				ConvertFileDAO.ChangeStatus(file.getFid(), 2);
 			} catch (Exception e) {
-				e.printStackTrace();
+				ConvertFileDAO.ChangeStatus(file.getFid(), 1);
 			}
 		}	
 	}
 	
-	private void Convert(String filename) {
+	private void Convert(String filename) throws Exception {
+		
 		PdfDocument pdf = new PdfDocument();
-		try {
-			pdf.loadFromFile(GetFolderPath("pdfs").getAbsolutePath() + File.separator + filename + ".pdf");
-			pdf.saveToFile(GetFolderPath("docxs").getAbsolutePath() + File.separator + filename + ".docx", FileFormat.DOCX);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		pdf.loadFromFile(GetFolderPath("pdfs").getAbsolutePath() + File.separator + filename + ".pdf");
+		pdf.saveToFile(GetFolderPath("docxs").getAbsolutePath() + File.separator + filename + ".docx", FileFormat.DOCX);
 		pdf.close();
 	}
 	

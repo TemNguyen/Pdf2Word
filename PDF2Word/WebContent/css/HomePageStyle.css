@@ -1,13 +1,16 @@
 @charset "UTF-8";
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body{
 	background-color:white;
 }
 
 header{
-	box-sizing: border-box;
-	margin:0;
-	padding: 0;
 	background-color:#24252A;
 	top:0;
 	left:0;
@@ -43,24 +46,23 @@ header{
 
 .header{
 	text-align:center;
-	margin-top:70px;
+	margin-top:50px;
 }
 .header h2{
 	font-weight: 100;
+	margin-bottom: 40px;
 }
 .header .far{
 	color:blue;
 	font-size:30px;
 	position:absolute;
-	left:35%;
+	left:36%;
 }
 
 .main{
-	position:relative;
-	top:30px;
-	left:130px;
+	margin: 0 auto;
 	width:80%;
-	height:400px;
+	height:500px;
 	background-color:rgb(49, 154, 235);
 	display:flex;
 	align-items:center;
@@ -68,8 +70,8 @@ header{
 }
 .submain{
 	margin: 20px;
-	width:98%;
-	height:360px;
+	width:95%;
+	height:90%;
 	background-color: rgb(16, 122, 204);
 	display:flex;
 	align-items:center;
@@ -80,12 +82,9 @@ header{
 	border-color: black;	
 }
 .button{
-	position:relative;
-	padding-right:200px;
-	top:30%;
+	display: flex;
 }
 .button .far{
-	height:300px;
 	font-size:50px;
 	color:white;
 	margin-right:20px;
@@ -95,26 +94,21 @@ input[type="file"]{
 	display:none;
 }
 label{
+	display: block;
 	color:black;
 	font-weight:900;
-	height:40px;
-	width:180px;
-	padding-left:30px;
-	position:absolute;
+	min-width:180px;
+	padding: 15px 30px;
 	background-color:rgb(242, 240, 240);
 	font-size:20px;
 	border-top-left-radius:5px;
 	border-bottom-left-radius:5px;
-	padding-top:15px;
 }
 .submit{
-	position:absolute;
-	right:-65px;
-	z-index:2;
 	color:black;
 	font-size:18px;
-	height:55.1px;
-	width:65px;
+	padding: 15px 30px;
+	min-width:65px;
 	background-color:rgb(242, 240, 240);
 	border: none;
 	border-left:1px solid lightgray;
