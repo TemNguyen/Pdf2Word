@@ -9,6 +9,7 @@ import javax.servlet.http.Part;
 
 import Model.Bean.user;
 import Model.DAO.UploadFileDAO;
+import _CONSTAINT.CONSTAINT;
 
 public class UploadFileBO implements Runnable {
 	HttpServletRequest request;
@@ -29,14 +30,14 @@ public class UploadFileBO implements Runnable {
 					try {
 						File file = new File(getFolderUpload(), filename);
 						Files.copy(part.getInputStream(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-						UploadFileDAO.Upload(filename, user, CONSTRAINT.PROCESSING);
+						UploadFileDAO.Upload(filename, user, CONSTAINT.PROCESSING);
 					} catch (Exception e) {
-						UploadFileDAO.Upload(filename, user, CONSTRAINT.UPLOAD_ERROR);
+						UploadFileDAO.Upload(filename, user, CONSTAINT.UPLOAD_ERROR);
 					}
 				}
 			}
 		} catch (Exception e) {
-			request.getSession().setAttribute("message", "Có lỗi xảy ra trong quá trình upload, vui lòng thử lại sau!");
+			
 		}
 		new ConvertFileBO(user).run();
 	}

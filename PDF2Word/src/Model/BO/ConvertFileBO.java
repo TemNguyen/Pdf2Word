@@ -10,6 +10,7 @@ import com.spire.pdf.PdfDocument;
 
 import Model.Bean.uploadfile;
 import Model.DAO.ConvertFileDAO;
+import _CONSTAINT.CONSTAINT;
 
 public class ConvertFileBO implements Runnable {
 	user user;
@@ -24,9 +25,9 @@ public class ConvertFileBO implements Runnable {
 			String filename = file.getFname().split("\\.")[0];
 			try {
 				Convert(filename);
-				ConvertFileDAO.ChangeStatus(file.getFid(), CONSTRAINT.SUCCESS);
+				ConvertFileDAO.ChangeStatus(file.getFid(), CONSTAINT.SUCCESS);
 			} catch (Exception e) {
-				ConvertFileDAO.ChangeStatus(file.getFid(), CONSTRAINT.CONVERT_ERROR);
+				ConvertFileDAO.ChangeStatus(file.getFid(), CONSTAINT.CONVERT_ERROR);
 			}
 		}	
 	}

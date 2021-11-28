@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.BO.CONSTRAINT;
+import _CONSTAINT.CONSTAINT;
+
 
 @WebServlet("/ShowErrorServlet")
 public class ShowErrorServlet extends HttpServlet {
@@ -29,14 +30,14 @@ public class ShowErrorServlet extends HttpServlet {
 		}
 		
 		switch (errorCode){
-		case CONSTRAINT.PROCESSING: {
+		case CONSTAINT.PROCESSING: {
 			break;
 		}
-		case CONSTRAINT.CONVERT_ERROR: {
+		case CONSTAINT.CONVERT_ERROR: {
 			request.getSession().setAttribute("message", "Có lỗi xảy ra trong quá trình chuyển đổi, vui lòng kiểm tra lại tên file và thử lại sau!");
 			break;
 		}
-		case CONSTRAINT.UPLOAD_ERROR: {
+		case CONSTAINT.UPLOAD_ERROR: {
 			request.getSession().setAttribute("message", "Có lỗi xảy ra trong quá trình upload file, vui lòng thử lại sau!");
 			break;
 		}
