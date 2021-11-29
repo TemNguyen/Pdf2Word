@@ -16,34 +16,37 @@ import Model.Bean.user;
 public class CheckLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public CheckLoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	public CheckLoginServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
-		if(username.equals("") || password.equals("")) {
-			//js error
+
+		if (username.equals("") || password.equals("")) {
+			request.getSession().setAttribute("message",
+					"Tên đăng nhập và mật khẩu không hợp lệ!");
 			response.sendRedirect("LoginServlet");
-		}else {
-			if(CheckLoginBO.CheckLogin(username, password)) {
+		} else {
+			if (CheckLoginBO.CheckLogin(username, password)) {
 				user user = GetUserBO.GetUser(username);
 				request.getSession().setAttribute("user", user);
 				request.getSession().setAttribute("message", "Đăng nhập thành công!");
 				response.sendRedirect("HomePage.jsp");
-				
-			}else {
-				//js login fail
-				request.getSession().setAttribute("message", "Có lỗi xảy ra, vui lòng kiểm tra lại thông tin tài khoản!");
+
+			} else {
+				request.getSession().setAttribute("message",
+						"Có lỗi xảy ra, vui lòng kiểm tra lại thông tin tài khoản!");
 				response.sendRedirect("LoginServlet");
 			}
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
