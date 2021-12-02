@@ -24,8 +24,7 @@ public class UploadFileServlet extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getPart("files_upload").getSize() != 0) {
 			String username = request.getParameter("username");
 			user user = GetUserBO.GetUser(username);
